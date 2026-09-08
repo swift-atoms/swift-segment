@@ -12,10 +12,6 @@ public struct Segment<Point> {
         self.end = end
     }
 
-    public init(from start: Point, to end: Point) {
-        self.init(start: start, end: end)
-    }
-
     public var reversed: Self { Self(start: end, end: start) }
 
     /// Transform endpoints in start-then-end order, preserving orientation.
@@ -31,5 +27,12 @@ extension Segment: Hashable where Point: Hashable {}
 extension Segment: Sendable where Point: Sendable {}
 
 #if !hasFeature(Embedded)
-extension Segment: Codable where Point: Codable {}
+extension Segment: Encodable where Point: Encodable {}
+extension Segment: Decodable where Point: Decodable {}
 #endif
+
+extension Segment {
+    public init(from start: Point, to end: Point) {
+        self.init(start: start, end: end)
+    }
+}

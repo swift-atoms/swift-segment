@@ -1,3 +1,4 @@
+import Foundation
 import Segment
 import Testing
 
@@ -97,4 +98,19 @@ struct `Segment values` {
         func requireSendable<T: Sendable>(_ value: T) {}
         requireSendable(Segment(from: 3, to: 8))
     }
+}
+
+@Test func `Segment encodes endpoints without requiring decoding`() throws {
+    struct Endpoint: Encodable { let value: Int }
+    let data = try JSONEncoder().encode(Segment(from: Endpoint(value: 1), to: Endpoint(value: 2)))
+    let object = try JSONSerialization.jsonObject(with: data) as? [String: [String: Int]]
+    #expect(object == ["start": ["value": 1], "end": ["value": 2]])
+}
+
+@Test func `Segment decodes endpoints without requiring encoding`() throws {
+    struct Endpoint: Decodable { let value: Int }
+    let data = Data(#"{"start":{"value":1},"end":{"value":2}}"#.utf8)
+    let value = try JSONDecoder().decode(Segment<Endpoint>.self, from: data)
+    #expect(value.start.value == 1)
+    #expect(value.end.value == 2)
 }
