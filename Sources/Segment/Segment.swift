@@ -1,8 +1,3 @@
-/// An oriented segment represented by two endpoints of the same point type.
-///
-/// Endpoint order is significant. Coincident endpoints are permitted. Storage
-/// alone imposes no ordering, coordinates, metric, or interpolation on Point.
-/// Domain and frame identity are preserved by the endpoint type itself.
 public struct Segment<Point> {
     public var start: Point
     public var end: Point
@@ -14,7 +9,6 @@ public struct Segment<Point> {
 
     public var reversed: Self { Self(start: end, end: start) }
 
-    /// Transform endpoints in start-then-end order, preserving orientation.
     public func map<Result, Failure: Swift.Error>(
         _ transform: (Point) throws(Failure) -> Result
     ) throws(Failure) -> Segment<Result> {
