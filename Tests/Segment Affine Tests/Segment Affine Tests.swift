@@ -31,13 +31,13 @@ struct `Segment affine interpretation` {
     @Test
     func `Translation preserves tagged endpoint identity`() {
         typealias Position = Tagged<World, Point<2, Int>>
-        let edge = Segment<Position>(from: .init(x: 1, y: 2), to: .init(x: 4, y: 6))
+        let edge = Segment<Position>(from: Position(Point(x: 1, y: 2)), to: Position(Point(x: 4, y: 6)))
         let moved: Segment<Position> = edge.translated(
             by: Displacement(dx: 1, dy: 1),
             using: Point<2, Int>.cartesian.tagged(World.self)
         )
-        #expect(moved.start == Position(x: 2, y: 3))
-        #expect(moved.end == Position(x: 5, y: 7))
+        #expect(moved.start == Position(Point(x: 2, y: 3)))
+        #expect(moved.end == Position(Point(x: 5, y: 7)))
     }
 
     private enum Failure: Error { case rejected }
