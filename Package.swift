@@ -13,10 +13,10 @@ let package = Package(
         .package(url: "https://github.com/swift-atoms/swift-clock.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-vector.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-translation.git", branch: "main", traits: [.trait(name: "Affine", condition: .when(traits: ["Affine"]))]),
-        .package(url: "https://github.com/swift-atoms/swift-displacement.git", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-displacement.git", branch: "main", traits: [.trait(name: "Tagged", condition: .when(traits: ["Affine"]))]),
         .package(url: "https://github.com/swift-atoms/swift-coordinate.git", branch: "main", traits: [.trait(name: "Tagged", condition: .when(traits: ["Affine"]))]),
         .package(url: "https://github.com/swift-atoms/swift-affine.git", branch: "main", traits: [.trait(name: "Tagged", condition: .when(traits: ["Affine"])), .trait(name: "Vector", condition: .when(traits: ["Affine"]))]),
-        .package(url: "https://github.com/swift-atoms/swift-point.git", branch: "main", traits: [.trait(name: "Affine", condition: .when(traits: ["Affine"]))]),
+        .package(url: "https://github.com/swift-atoms/swift-point.git", branch: "main", traits: [.trait(name: "Tagged", condition: .when(traits: ["Affine"])), .trait(name: "Affine", condition: .when(traits: ["Affine"]))]),
         .package(url: "https://github.com/swift-atoms/swift-tagged.git", branch: "main"),
     ],
     targets: [
