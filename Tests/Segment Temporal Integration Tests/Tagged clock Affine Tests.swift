@@ -28,7 +28,7 @@ private func checkDomain<Domain: ~Copyable & ~Escapable>(_ domain: Domain.Type) 
 func `Tagged composition preserves all attoseconds`(attoseconds: Int128) throws {
     let relation = Time.Coordinate.temporal.tagged(Clock.Continuous.self)
     let origin = Clock.Continuous.Instant.reference
-    let delta = Swift.Duration(attoseconds: attoseconds)
+    let delta = Swift::Duration(attoseconds: attoseconds)
     let end: Tagged<Clock.Continuous, Time.Coordinate> = try relation.translated(origin, by: delta)
     #expect(end.offset == delta)
     #expect(try relation.displacement(from: origin, to: end) == delta)

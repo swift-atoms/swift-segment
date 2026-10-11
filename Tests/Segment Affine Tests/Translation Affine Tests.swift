@@ -21,11 +21,11 @@ import Testing
         #expect(first.composed(with: .identity) == first)
     }
     @Test func `Native duration displacements require no wrapper`() {
-        let affine = Affine<Int, Swift.Duration, Never>(
+        let affine = Affine<Int, Swift::Duration, Never>(
             translating: { $0 + Int($1.components.seconds) },
             displacement: { .seconds($1 - $0) }
         )
-        let operation = Translation(by: Swift.Duration.seconds(3))
+        let operation = Translation(by: Swift::Duration.seconds(3))
         #expect(operation.applying(to: 7, using: affine) == 10)
     }
 }

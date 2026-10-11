@@ -6,10 +6,13 @@ public struct Segment<Point> {
         self.start = start
         self.end = end
     }
+}
+
+extension Segment {
 
     public var reversed: Self { Self(start: end, end: start) }
 
-    public func map<Result, Failure: Swift.Error>(
+    public func map<Result, Failure: Swift::Error>(
         _ transform: (Point) throws(Failure) -> Result
     ) throws(Failure) -> Segment<Result> {
         try Segment<Result>(start: transform(start), end: transform(end))
