@@ -1,5 +1,5 @@
-import Segment
 import Point
+import Segment
 import Tagged
 import Testing
 

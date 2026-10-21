@@ -24,8 +24,8 @@ extension Segment: Hashable where Point: Hashable {}
 extension Segment: Sendable where Point: Sendable {}
 
 #if !hasFeature(Embedded)
-extension Segment: Encodable where Point: Encodable {}
-extension Segment: Decodable where Point: Decodable {}
+    extension Segment: Encodable where Point: Encodable {}
+    extension Segment: Decodable where Point: Decodable {}
 #endif
 
 extension Segment {

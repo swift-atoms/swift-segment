@@ -40,7 +40,8 @@ func verify() throws {
         throw VerificationFailure(description: "Valid client failed:\n\(valid.diagnostics)")
     }
     let invalid = try FileManager.default.contentsOfDirectory(
-        at: fixtures, includingPropertiesForKeys: nil
+        at: fixtures,
+        includingPropertiesForKeys: nil
     ).filter { $0.lastPathComponent.hasPrefix("Invalid") && $0.pathExtension == "swift" }
         .sorted { $0.lastPathComponent < $1.lastPathComponent }
     guard !invalid.isEmpty else {

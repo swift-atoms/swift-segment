@@ -1,9 +1,7 @@
 import Affine
 import Clock
 import Coordinate
-import Affine
 import Tagged
-import Time
 import Time
 
 struct LocalDomain: ~Copyable {}
