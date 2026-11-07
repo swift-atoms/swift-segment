@@ -59,7 +59,7 @@ struct `Segment values` {
         #expect(mapped == Segment(from: "3", to: "8"))
     }
 
-    private enum Failure: Error { case rejected }
+    private enum Failure: Swift.Error { case rejected }
 
     @Test
     func `Mapping propagates its concrete error and stops at the first failure`() {

@@ -36,7 +36,7 @@
             #expect(affine.translated(end, by: .zero - d) == start)
             #expect(affine.translated(end, by: d) == affine.translated(start, by: d + d))
             #expect(Set([start, start]).count == 1)
-            for i in 0..<N { #expect(end[i] == i + 3) }
+            (0..<N).forEach { i in #expect(end[i] == i + 3) }
         }
 
         @Test func `Cartesian relationships preserve affine laws in zero one two three and eight dimensions`() {

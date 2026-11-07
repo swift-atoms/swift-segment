@@ -40,7 +40,7 @@
             #expect(moved.end == Position(Point(x: 5, y: 7)))
         }
 
-        private enum Failure: Error { case rejected }
+        private enum Failure: Swift.Error { case rejected }
 
         @Test
         func `Displacement preserves the concrete affine failure`() {
