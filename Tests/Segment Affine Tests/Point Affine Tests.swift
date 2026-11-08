@@ -13,9 +13,9 @@
     private enum World {}
     private final class LocalScalar {}
 
-enum `Point Affine Tests` {}
+    enum `Point Affine Tests` {}
 
-extension `Point Affine Tests` {
+    extension `Point Affine Tests` {
         @Suite struct `Points preserve representation and domain identity` {
             @Test func `Changing reference changes coordinates not the point`() {
                 let point = Point(coordinates: Vector<2, Int>([5, 7]))
@@ -73,5 +73,5 @@ extension `Point Affine Tests` {
                 #expect(relation.translated(tagged, by: ()).underlying[0] === value)
             }
         }
-}
+    }
 #endif

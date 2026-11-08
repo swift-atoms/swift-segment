@@ -9,9 +9,9 @@
     import Segment
     import Testing
 
-enum `Segment Affine Tests` {}
+    enum `Segment Affine Tests` {}
 
-extension `Segment Affine Tests` {
+    extension `Segment Affine Tests` {
         @Suite
         struct `Segment affine interpretation` {
             @Test
@@ -79,5 +79,5 @@ extension `Segment Affine Tests` {
                 #expect(edge == Segment(from: 1, to: 2))
             }
         }
-}
+    }
 #endif

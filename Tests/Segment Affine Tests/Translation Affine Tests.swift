@@ -9,9 +9,9 @@
     import Segment
     import Testing
 
-enum `Translation Affine Tests` {}
+    enum `Translation Affine Tests` {}
 
-extension `Translation Affine Tests` {
+    extension `Translation Affine Tests` {
         @Suite struct `Translations preserve composition and inversion` {
             @Test func `Spatial translations preserve composition and inverse laws`() {
                 let point = Point(coordinates: Vector<3, Int>([1, 2, 3]))
@@ -34,5 +34,5 @@ extension `Translation Affine Tests` {
                 #expect(operation.applying(to: 7, using: affine) == 10)
             }
         }
-}
+    }
 #endif

@@ -11,9 +11,9 @@
 
     private enum Screen {}
 
-enum `Composed call-site syntax Tests` {}
+    enum `Composed call-site syntax Tests` {}
 
-extension `Composed call-site syntax Tests` {
+    extension `Composed call-site syntax Tests` {
         @Suite struct `Natural construction preserves explicit domain composition` {
             @Test func `Tagged points have natural constructors without exposing unchecked storage`() {
                 let point: Tagged<Screen, Point<2, Double>> = .init(x: 100, y: 200)
@@ -79,7 +79,7 @@ extension `Composed call-site syntax Tests` {
                 #expect(recovered == Displacement(dx: 5.0, dy: 7.0))
             }
         }
-}
+    }
 
     private struct LocalDomain: ~Copyable {}
 
