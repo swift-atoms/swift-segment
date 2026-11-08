@@ -1,3 +1,3 @@
 #if Affine
-    @_exported public import Affine
+    public import Affine
 #endif
